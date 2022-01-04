@@ -237,4 +237,111 @@ var Particle5 = /** @class */ (function () {
 export { Particle5 };
 /*
     clase 6 particulas, efecto 3 de la ventana 2
-*/ 
+*/
+var Particle6 = /** @class */ (function () {
+    function Particle6(x, y, screenCanvas) {
+        this.x = x;
+        this.y = y;
+        this.speedX = Math.random() * 4 - 2;
+        this.speedY = Math.random() * 4 - 2;
+        this.maxSize = Math.random() * 7 + 20;
+        this.size = Math.random() * 1 + 2;
+        this.ctx2 = screenCanvas;
+        this._2PI = Math.PI * 2;
+        this.anglex = Math.random() * 6.2;
+        this.angley = Math.random() * 6.2;
+        this.angle = 0;
+        this.vax = Math.random() * 0.6 - 0.3;
+        this.vs = Math.random() * 0.2 + 0.5;
+        this.vay = Math.random() * 0.6 - 0.3;
+        this.lightnees = 10;
+        this.va = Math.random() * 0.02 + 0.05;
+    }
+    Particle6.prototype.update = function () {
+        this.x += this.speedX + Math.sin(this.anglex);
+        this.y += this.speedY + Math.sin(this.angley);
+        this.size += this.vs;
+        this.anglex += this.vax;
+        this.angley += this.vay;
+        this.angle += this.va;
+        /*
+        
+             if(this.lightnees<70)this.lightnees+=0.25;
+             if(this.size < this.maxSize){
+               this.ctx2.save();
+               this.ctx2.translate(this.x,this.y);
+               this.ctx2.rotate(this.angle);
+               this.ctx2.fillRect(0 - this.size/2, 0 - this.size/2, this.size, this.size);
+               
+               let double= this.size*2;
+               this.ctx2.lineWidth=0.5;
+               this.ctx2.strokeStyle='#3c5186';
+               
+               this.ctx2.strokeRect(0-double/2, 0-double/2, double,double);
+               let trip = this.size*3;
+               this.ctx2.lineWidth=0.1;
+                this.ctx2.strokeStyle='white';
+               this.ctx2.strokeRect(0-trip/2, 0-trip/2, trip,trip);
+              requestAnimationFrame(this.update.bind(this));
+              this.ctx2.restore();
+              }
+          
+          }*/
+    };
+    return Particle6;
+}());
+export { Particle6 };
+/*
+    clase 7 particulas, efecto 4 de la ventana 2
+*/
+var Particle7 = /** @class */ (function () {
+    function Particle7(x, y, screenCanvas) {
+        this.x = x;
+        this.y = y;
+        this.speedX = Math.random() * 4 - 2;
+        this.speedY = Math.random() * 4 - 2;
+        this.maxSize = Math.random() * 7 + 20;
+        this.size = Math.random() * 1 + 2;
+        this.ctx2 = screenCanvas;
+        this._2PI = Math.PI * 2;
+        this.anglex = Math.random() * 6.2;
+        this.angley = Math.random() * 6.2;
+        this.angle = 0;
+        this.vax = Math.random() * 0.6 - 0.3;
+        this.vs = Math.random() * 0.2 + 0.5;
+        this.vay = Math.random() * 0.6 - 0.3;
+        this.lightnees = 10;
+        this.va = Math.random() * 0.02 + 0.05;
+    }
+    Particle7.prototype.update = function () {
+        this.x += this.speedX + Math.sin(this.anglex);
+        this.y += this.speedY + Math.sin(this.angley);
+        this.size += this.vs;
+        this.anglex += this.vax;
+        this.angley += this.vay;
+        this.angle += this.va;
+        if (this.lightnees < 70)
+            this.lightnees += 0.25;
+        if (this.size < this.maxSize) {
+            this.ctx2.save();
+            this.ctx2.translate(this.x, this.y);
+            this.ctx2.rotate(this.angle);
+            this.ctx2.fillRect(0 - this.size / 2, 0 - this.size / 2, this.size, this.size);
+            var double = this.size * 2;
+            this.ctx2.lineWidth = 0.5;
+            /*
+            this.ctx2.strokeStyle='#3c5186';
+            
+            this.ctx2.strokeRect(0-double/2, 0-double/2, double,double);
+            let trip = this.size*3;
+            this.ctx2.lineWidth=0.1;
+             this.ctx2.strokeStyle='white';
+            this.ctx2.strokeRect(0-trip/2, 0-trip/2, trip,trip);
+            */
+            requestAnimationFrame(this.update.bind(this));
+            this.ctx2.restore();
+        }
+    };
+    return Particle7;
+}());
+export { Particle7 };
