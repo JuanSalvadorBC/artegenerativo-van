@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>efectos</title>
+	<!--link referentes a los los estilos de letras -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400&family=Rock+3D&display=swap" rel="stylesheet"> 
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap" rel="stylesheet"> 
+
+<!---->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shizuru&display=swap" rel="stylesheet"> 
+	
+	<!--link de los estilos de pagina-->
+	<link rel="stylesheet" href="css/estilo.css">
+
+
+	<!--libreria para solo selecionar un elemento del checkbox-->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+
+</head>
+<body>
+	<div class="container">
+
+		<header>
+			<h2>Arte generativo</h2>
+		</header>
+		<section class="canvs"> <!--conetenedor del canvas-->
+		<div id= "ventana1">
+			<canvas id="img1" width="658px" height="285px">
+				
+			</canvas>
+		</div>
+		<div id= "ventana2">
+			<canvas id="img2" width="658px" height="285px">
+				
+			</canvas>
+		</div>
+
+			
+		</section>
+<aside class="menu">
+		<div class="id-menu">
+			<h3>Efectos</h3> 
+		</div>
+			<form action="" class="submenu">
+
+				<!--contenedor del checkbox-->
+			
+<p><h3>Ventana 1: </h3>
+				<p>
+				<label for="efecto1"> efecto 1</label>
+				<input type="checkbox" value="efecto1" name="check2[]" class="opc" id="eft1">
+			    </p>
+			    <!--2#  efecto-->
+			    <p>
+				<label for="efecto2"> efecto 2</label>
+				<input type="checkbox" value="efecto2" name="check2[]" class="opc" id="eft2">
+			    </p>
+			     <!--3#  efecto-->
+			    <p>
+				<label for="efecto3"> efecto 3</label>
+				<input type="checkbox" value="efecto3" name="check2[]" class="opc" id="eft3">
+			    </p>
+			     <!--4#  efecto-->
+			    
+</p>
+
+<div class="espacio"><button id="limpia2">LIMPIAR CAMVS</button></div>		
+<form action="" class="submenu2">
+<p class="v2"> <h3>Ventana 2:</h3>
+			    <p>
+				<label for="efecto4"> efecto 1</label>
+				<input type="checkbox" value="efecto4" name="check[]" class="opc" id="eft4">
+			    </p>
+                <!--5#  efecto-->
+			     <p>
+				<label for="efecto5"> efecto 2</label>
+				<input type="checkbox" value="efecto5" name="check[]" class="opc" id="eft5">
+			    </p>
+
+			     <p>
+				<label for="efecto6"> efecto 3</label>
+				<input type="checkbox" value="efecto6" name="check[]" class="opc" id="eft6">
+			    </p>
+			    <p>
+				<label for="efecto7"> efecto 4</label>
+				<input type="checkbox" value="efecto7" name="check[]" class="opc" id="eft7">
+			    </p>
+			   
+</p>
+
+</aside>
+
+		<div class="salto"></div>
+		<footer>
+			
+		</footer>
+
+
+		
+	</div>
+<!--scrpt para selecioonar una sola casilla-->
+
+<script>
+$('input[type="checkbox"]').on('change', function() {
+    $('input[name="' + this.name + '"]').not(this).prop('checked', false);
+});
+</script>
+
+
+<!--scrpt-->
+<script src="dist/src/index.js"  type="module">	</script>
+
+
+</body>
+</html>
