@@ -2,6 +2,7 @@ import { Particle } from "./particle.js";
 import { Particle2 } from "./particle.js";
 import { Particle3 } from "./particle.js";
 import { Particle4 } from "./particle.js";
+import { Particle5 } from "./particle.js";
 /*
     fin del importado de clases
 */
@@ -91,9 +92,32 @@ function efecto4(evt) {
     });
 }
 /*
+----------------------------efecto ventana 2--------------------------------
+*/
+function efecto5(evt) {
+    lienzo2.addEventListener('mousemove', function (e) {
+        mouse.x = e.x - lienzo2.offsetLeft;
+        mouse.y = e.y - lienzo2.offsetTop;
+        console.log(mouse.x, mouse.y);
+        if (band) {
+            for (var i = 0; i < 3; i++) {
+                var objeto = new Particle5(mouse.x, mouse.y, pantalla2);
+                objeto.update();
+            }
+        }
+    });
+    lienzo2.addEventListener('mousedown', function () {
+        band = true;
+    });
+    lienzo2.addEventListener('mouseup', function () {
+        band = false;
+    });
+}
+/*
         eventos para los checkbox
 */
 document.getElementById("eft1").addEventListener('click', efecto1, false);
 document.getElementById("eft2").addEventListener('click', efecto2, false);
 document.getElementById("eft3").addEventListener('click', efecto3, false);
 document.getElementById("eft4").addEventListener('click', efecto4, false);
+document.getElementById("eft5").addEventListener('click', efecto5, false);
