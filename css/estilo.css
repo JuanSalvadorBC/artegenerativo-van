@@ -66,14 +66,33 @@ header{
 .submenu{
 	font-size:19px ;
 	color: #E1F5FE;
+	
 }
 
-#submenu2{
+.submenu2{
 	font-size:19px ;
 	color: #E1F5FE;
+	
 }
 .espacio{
-	height: 100px;
-
+	height: 150px;
+	
+	justify-content: center;
 
 }
+button{
+	align-items: center;
+	 position:relative;
+     top:40%; 
+
+}
+.cont1{
+	border: white 1px groove;
+
+}
+.cont2{
+	border: white 1px groove;
+
+}
+
+

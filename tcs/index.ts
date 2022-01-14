@@ -1,6 +1,11 @@
 import { Particle } from "./particle.js";
 import { Particle2 } from "./particle.js";
 import { Particle3 } from "./particle.js";
+import { Particle31 } from "./particle.js";
+/*
+VENTANA 2
+*/
+
 import { Particle4 } from "./particle.js";
 import { Particle5 } from "./particle.js";
 import { Particle6 } from "./particle.js";
@@ -82,6 +87,38 @@ if(band)
     band= false;
   });
 }
+
+/*
+----------------------------efecto 4 de la ventana 1--------------------------------
+*/
+function efecto31(evt:any):void{
+  lienzo1.addEventListener('mousemove',function(e:any){
+      mouse.x=e.x -lienzo1.offsetLeft;
+      mouse.y=e.y -lienzo1.offsetTop;
+      pantalla1.lineWidth = 0.2;
+      pantalla1.globalCompositeOperation = 'lighten';
+
+if(band)
+{
+  for(let i=0; i<5; i++){
+      const objeto = new Particle31(mouse.x,mouse.y,pantalla1);
+      objeto.update();
+    }
+}
+});
+  lienzo1.addEventListener('mousedown', function(){
+    band= true;
+  });
+  lienzo1.addEventListener('mouseup', function(){
+    band= false;
+  });
+}
+
+
+
+
+
+
 /*
 ----------------------------efecto4, bt1 ventana 2--------------------------------
 */
@@ -91,7 +128,6 @@ function efecto4(evt:any):void{
   lienzo2.addEventListener('mousemove',function(e:any){
       mouse.x=e.x -lienzo2.offsetLeft;
       mouse.y=e.y -lienzo2.offsetTop;
-      console.log(mouse.x,mouse.y)
 if(band)
 {
   for(let i=0; i<3; i++){
@@ -199,6 +235,7 @@ if(band)
 }
 });
 
+
   lienzo2.addEventListener('mousedown', function(){
     band= true;
   });
@@ -215,6 +252,10 @@ if(band)
 document.getElementById("eft1").addEventListener('click', efecto1, false);
 document.getElementById("eft2").addEventListener('click', efecto2, false);
 document.getElementById("eft3").addEventListener('click', efecto3, false);
+document.getElementById("eft31").addEventListener('click', efecto31, false);
+/*
+   checkbox 2
+ */
 document.getElementById("eft4").addEventListener('click', efecto4, false);
 document.getElementById("eft5").addEventListener('click', efecto5, false);
 document.getElementById("eft6").addEventListener('click', efecto6, false);

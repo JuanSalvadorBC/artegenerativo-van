@@ -169,7 +169,7 @@ export class flower{
      this.vs = Math.random()*0.3+0.02;
 
     
-    this.maxsizeflow = this.size + Math.random()*55;
+    this.maxsizeflow = this.size + Math.random()*28+9;
     this.img = new Image();
     this.img.src ='arreglo2.png';
     this.framesz=100;
@@ -196,6 +196,119 @@ export class flower{
     }
   }
 }
+
+/*
+  clase 4 particulas de la ventana 1 
+*/
+export class Particle31{
+   protected x: number;
+  protected y: number;
+  protected speedX:number;
+  protected speedY:number;
+  protected maxSize:number;
+  protected size:number;
+  protected ctx: CanvasRenderingContext2D;
+  protected _2PI: number;
+  protected anglex:number;
+  protected vs:number;
+  protected vax:number;
+  protected angley:number;
+  protected vay:number;
+  protected lightnees=20;//utimo valor para hsl
+
+constructor (x:number, y:number, screenCanvas:CanvasRenderingContext2D){
+     this.x = x;
+     this.y = y;
+     this.speedX = Math.random()*6-3;//movivimento conforne a x 
+     this.speedY = Math.random()*6-3;//movimiento conforme a la y 
+     this.maxSize = Math.random()*5+3;
+     this.size = Math.random()*1+2;
+     this.ctx = screenCanvas;
+     this._2PI = Math.PI * 2;
+     this.vs = Math.random()*0.2+0.05;
+     this.anglex = Math.random()*8.2;//angulo en base ala corrdendad x 
+     this.vax = Math.random()*0.6-0.3;
+     this.angley = Math.random()*8.2;//angulo en base a la coordenada y
+     this.vay = Math.random()*0.6-0.3;
+  }
+  update(){
+    this.x += this.speedX + Math.sin(this.anglex);
+     this.y += this.speedY + Math.sin(this.angley);
+     this.size += this.vs;
+     this.anglex += this.vax;
+     this.angley += this.vay;
+     if(this.lightnees<70)this.lightnees+=0.25;
+     if(this.size < this.maxSize){
+      this.ctx.beginPath();
+      this.ctx.fillRect(this.x,this.y,0.1,0.1);
+      this.ctx.arc(this.x, this.y, this.size, 0, this._2PI);    
+      this.ctx.fillStyle = 'hsl(130,56%,'+this.lightnees+'%)';//valor hsl con el ultimo valor dado por defecto
+      this.ctx.fill();
+      this.ctx.stroke();
+      requestAnimationFrame(this.update.bind(this));
+    }
+    else{
+      const flores = new flower2(this.x, this.y, this.size, this.ctx);//en base ala condicion llamamos la clase flower para la animacion de flores
+      flores.grow();
+    }
+  }
+}
+export class flower2{
+  protected x: number;
+  protected y: number;
+  protected size:number;
+  protected maxsizeflow:number;
+  protected framesz:number;
+  protected framex:number;
+  protected framey:number;
+  protected img: CanvasImageSource;
+  //protected img2: CanvasImageSource ;
+  protected img3: CanvasImageSource ;
+  protected ctx: CanvasRenderingContext2D;
+  protected willf:boolean;
+  protected vs:number;
+  protected va:number;
+  protected angle:number;
+  protected willflower:boolean;
+  
+  constructor (x:number, y:number, size:number,screenCanvas:CanvasRenderingContext2D ){
+    this.ctx = screenCanvas;
+    this.x = x;
+    this.y = y;
+    this.size = size;
+   
+     this.vs = Math.random()*0.3+0.02;
+    this.maxsizeflow = this.size + Math.random()*20 +5;
+    this.img = new Image();
+    this.img.src ='flower2.png';
+    this.framesz=512;//tamaño del ancho y largo de la img en base a sus dimenciones.
+    this.framex= Math.floor( Math.random()*1);//ubicacion para el dibujo de la imgaen
+    this.framey= Math.floor( Math.random()*1);
+    this.size >= 11.5? this.willflower=true:this.willflower=false;
+
+    this.angle=0;
+    this.va = Math.random()*0.05-0.025;//velocidad de movimiento de las flores 
+   
+  };
+  grow(){
+    if(this.size < this.maxsizeflow){
+      this.size += this.vs;
+      this.angle += this.va;
+      this.ctx.save();
+      this.ctx.translate(this.x, this.y);
+      this.ctx.rotate(this.angle);
+      this.ctx.drawImage(this.img, this.framesz*this.framex, this.framesz*this.framey,512,512,0-this.size/2, 0-this.size/2, this.size, this.size);
+      this.ctx.restore();
+
+      requestAnimationFrame(this.grow.bind(this));//animacion para la pantalla que actualmente se usa
+    }
+  } 
+}
+
+
+ 
+
+
 
 /*
 	clase 4 particulas, efecto 1 ventana 2
@@ -244,7 +357,7 @@ constructor (x:number, y:number, screenCanvas:CanvasRenderingContext2D){
        this.ctx2.fillStyle='#FAFAFA';
        this.ctx2.fillRect(this.x,this.y, this.size, this.size);
        this.ctx2.strokeStyle='#3E2723';
-      this.ctx2.strokeRect(this.x, this.y, this.size,this.size);
+      this.ctx2.strokeRect(this.x, this.y,this.size, this.size);
       requestAnimationFrame(this.update.bind(this));
     }  
   }
